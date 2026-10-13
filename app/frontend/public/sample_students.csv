@@ -1,0 +1,13 @@
+name,rollNo,email,department,section,semester,cgpa,attendance,lms,skills,placement,engagement,backlogs
+Aarav Mehta,24CSE101,aarav.mehta@campus.edu,CSE,A,5,8.9,91,84,88,82,86,0
+Aanya Patel,24CSE102,aanya.patel@campus.edu,CSE,B,3,7.2,68,55,60,52,58,2
+Aditya Kapoor,24ECE101,aditya.kapoor@campus.edu,ECE,C,4,6.4,59,42,48,40,45,3
+Anika Joshi,24ECE102,anika.joshi@campus.edu,ECE,A,6,8.1,88,79,74,85,80,0
+Arjun Menon,24IT101,arjun.menon@campus.edu,IT,B,5,9.2,96,90,92,91,94,0
+Avni Chopra,24IT102,avni.chopra@campus.edu,IT,C,2,8.7,89,70,45,48,66,0
+Dev Ghosh,24MECH101,dev.ghosh@campus.edu,MECH,A,7,5.9,62,38,41,35,40,4
+Diya Nair,24MECH102,diya.nair@campus.edu,MECH,B,3,7.6,80,66,63,61,70,1
+Ishaan Rao,24CIVIL101,ishaan.rao@campus.edu,CIVIL,C,6,7.0,74,60,58,64,59,1
+Ira Saxena,24CIVIL102,ira.saxena@campus.edu,CIVIL,A,8,8.4,92,81,83,89,85,0
+Kabir Bose,24CSE103,kabir.bose@campus.edu,CSE,B,7,6.8,71,57,69,66,54,2
+Kiara Iyer,24IT103,kiara.iyer@campus.edu,IT,C,1,7.9,85,72,65,55,78,0

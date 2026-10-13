@@ -1,0 +1,140 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/jetbrains-mono";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: 'Geist Variable', sans-serif;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+    --background: #0b0b14;
+    --foreground: #f5f3ff;
+    --card: #12121f;
+    --card-foreground: #f5f3ff;
+    --popover: #171728;
+    --popover-foreground: #f5f3ff;
+    --primary: #c4b5fd;
+    --primary-foreground: #0b0b14;
+    --secondary: #171728;
+    --secondary-foreground: #f5f3ff;
+    --muted: #171728;
+    --muted-foreground: #a1a1b5;
+    --accent: #1c1c32;
+    --accent-foreground: #f5f3ff;
+    --destructive: #fb7185;
+    --border: rgba(196,181,253,0.15);
+    --input: rgba(196,181,253,0.15);
+    --ring: #c4b5fd;
+    --chart-1: #c4b5fd;
+    --chart-2: #67e8f9;
+    --chart-3: #4ade80;
+    --chart-4: #fbbf24;
+    --chart-5: #fb7185;
+    --radius: 0.625rem;
+    --sidebar: #12121f;
+    --sidebar-foreground: #f5f3ff;
+    --sidebar-primary: #c4b5fd;
+    --sidebar-primary-foreground: #0b0b14;
+    --sidebar-accent: #1c1c32;
+    --sidebar-accent-foreground: #f5f3ff;
+    --sidebar-border: rgba(196,181,253,0.12);
+    --sidebar-ring: #c4b5fd;
+}
+
+.dark { color-scheme: dark; }
+
+@keyframes page-in { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes float-soft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.page-enter { animation: page-in 420ms ease-out both; }
+.float-soft { animation: float-soft 5s ease-in-out infinite; }
+.mobile-sidebar-shell {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 50;
+  transform: translateX(-100%);
+  transition: transform 300ms ease;
+}
+.mobile-sidebar-shell[data-open="true"] { transform: translateX(0); }
+@media (min-width: 768px) {
+  .mobile-sidebar-shell {
+    position: static;
+    transform: none;
+  }
+}
+::selection { background: rgba(196,181,253,0.28); color: #f5f3ff; }
+* { scrollbar-width: thin; scrollbar-color: rgba(196,181,253,0.22) transparent; }
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    background: #0b0b14;
+    }
+}
+/* ---- Dropdown (native <select>) visibility fix ----
+   Native dropdown lists were rendering with a white background and near-white
+   text, making options invisible. Force a dark popup with light text. */
+select {
+  color-scheme: dark;
+  color: #f5f3ff;
+  background-color: #171728;
+}
+select option,
+select optgroup {
+  background-color: #171728;
+  color: #f5f3ff;
+}
+select option:checked,
+select option:hover {
+  background-color: #c4b5fd;
+  color: #0b0b14;
+}
+select:disabled { color: #a1a1b5; }

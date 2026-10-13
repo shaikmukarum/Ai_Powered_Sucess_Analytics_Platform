@@ -1,0 +1,18 @@
+{
+  "passed": 7,
+  "failed": 0,
+  "bugs": [],
+  "action_items": [
+    "Supabase/auth and data APIs are intentionally MOCKED per the mock-first specification; no backend API lane was applicable."
+  ],
+  "retest_needed": false,
+  "checks": [
+    {"criterion":"Demo authentication","name":"admin-demo-authentication","lane":"browser","status":"passed","evidence":"Preview URL login with admin@demo.com/demo123 reached authenticated dashboard; body contained Good morning, Ananya and 300 profiles in scope."},
+    {"criterion":"Dashboard analytics","name":"admin-dashboard-analytics","lane":"browser","status":"passed","evidence":"Authenticated dashboard rendered profile scope, attendance & CGPA trends, risk distribution, department comparison, risk heatmap, recent alerts, and priority queue."},
+    {"criterion":"Student directory","name":"student-directory-search-reset","lane":"browser","status":"passed","evidence":"Students route rendered 300 matching profiles; selecting CSE changed to 60 matching profiles; Reset restored 300 matching profiles."},
+    {"criterion":"Student 360 navigation","name":"student-360-profile","lane":"browser","status":"passed","evidence":"Selecting seeded Aarav Mehta opened Student 360 with success score, subject performance, and faculty signal/feedback content."},
+    {"criterion":"Student 360 tabs","name":"student-360-tabs-actions","lane":"browser","status":"passed","evidence":"Explainability, Recommendations, and Interventions tabs opened; Generate plan produced Personalized action plan is ready."},
+    {"criterion":"Faculty role scope","name":"faculty-role-scope","lane":"browser","status":"passed","evidence":"Faculty demo card entered CSE-scoped view; Students route showed 60 matching profiles and excluded an ECE row assertion."},
+    {"criterion":"Responsive workspace","name":"responsive-mobile-workspace","lane":"browser","status":"passed","evidence":"390px viewport completed demo login and Students navigation; Aarav Mehta remained visible and body exposed usable horizontal layout."}
+  ]
+}

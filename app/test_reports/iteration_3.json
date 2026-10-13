@@ -1,0 +1,65 @@
+{
+  "passed": 8,
+  "failed": 0,
+  "bugs": [],
+  "action_items": [],
+  "retest_needed": false,
+  "checks": [
+    {
+      "criterion": "Supabase-backed Admin data path",
+      "name": "test_tscheck_supabase_admin_data_path.py",
+      "lane": "backend",
+      "status": "passed",
+      "evidence": "pytest rerun: 4 passed in 6.04s (full suite incl. this file). GET /api/risk-signals with admin@demo.com session -> 200, source=supabase, 300 signals; GET /api/students/stu-001 -> 200."
+    },
+    {
+      "criterion": "Supabase-backed Faculty scope",
+      "name": "test_tscheck_supabase_faculty_scope.py",
+      "lane": "backend",
+      "status": "passed",
+      "evidence": "pytest rerun: 4 passed in 6.04s. GET /api/risk-signals with faculty@demo.com session -> 200, source=supabase, 60 signals all department=CSE; no-cookie request -> 401."
+    },
+    {
+      "criterion": "Login and fallback",
+      "name": "login-demo-mock-fallback",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Rerun PASSED. Login form + demo buttons rendered; quick-admin-login reached app shell with live-data-indicator 'mock fallback' and Risk Signals data-source-label 'Mock fallback · read-only demo data'."
+    },
+    {
+      "criterion": "Academic Risk Signals",
+      "name": "risk-signals-academic-overview",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Rerun PASSED. risk-kpi-grid (300 profiles), trend chart, posture donut, heatmap, highest-risk-list all rendered on academic tab."
+    },
+    {
+      "criterion": "Placement risk and filtering",
+      "name": "risk-signals-placement-filtering",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Rerun PASSED. Department=CSE filter dropped KPI 300->60; risk-level filter applied; reset restored 300."
+    },
+    {
+      "criterion": "Student 360 navigation",
+      "name": "risk-signals-student-360-navigation",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Rerun PASSED. Clicking highest-risk-list row navigated to /students/stu-xxx with matching student name."
+    },
+    {
+      "criterion": "Role-aware UI scope",
+      "name": "risk-signals-faculty-cse-scope",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Rerun PASSED. Faculty login scoped to CSE: 60 profiles KPI, department filter disabled, only CSE heatmap row, all ranked rows show CSE."
+    },
+    {
+      "criterion": "Responsive and session controls",
+      "name": "responsive-risk-and-session-controls",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Rerun PASSED after fix (mobile-sidebar-shell with explicit CSS transform, aside now relative). At 390x844 sidebar starts off-screen, hamburger opens it, close control dismisses it, Risk Signals/Student profile content usable, sign-out returns to logged-out/login state. Screenshots: mobile-risk-page, mobile-student-profile, mobile-logged-out all captured without timeouts."
+    }
+  ]
+}

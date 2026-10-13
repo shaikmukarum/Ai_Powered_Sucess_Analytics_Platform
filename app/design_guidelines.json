@@ -1,0 +1,109 @@
+{
+  "project_name": "AI Student Success Copilot",
+  "archetype": "Apple + Palantir + Linear + Notion Precision (Dark Minimalist with Light Purple Luminescence)",
+  "context_type": "DASHBOARDS_AND_ADMIN_PANELS",
+  "theme": "dark",
+  "palette": {
+    "background": "#0B0B14",
+    "surface": "#12121F",
+    "surface_secondary": "#171728",
+    "surface_elevated": "#1C1C32",
+    "border_subtle": "rgba(196, 181, 253, 0.12)",
+    "border_active": "rgba(196, 181, 253, 0.35)",
+    "glass_bg": "rgba(255, 255, 255, 0.04)",
+    "glass_border": "rgba(196, 181, 253, 0.15)",
+    "primary_accent": "#C4B5FD",
+    "secondary_accent": "#A78BFA",
+    "deep_glow": "#7C3AED",
+    "text_primary": "#F5F3FF",
+    "text_secondary": "#A1A1B5",
+    "text_muted": "#6E6E85",
+    "status": {
+      "info_cyan": "#67E8F9",
+      "low_risk_green": "#4ADE80",
+      "medium_risk_amber": "#FBBF24",
+      "high_risk_rose": "#FB7185"
+    }
+  },
+  "typography": {
+    "heading_font": "Geist Variable, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    "body_font": "Geist Variable, Inter, sans-serif",
+    "mono_font": "JetBrains Mono, 'IBM Plex Mono', monospace",
+    "scale": {
+      "h1": "text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#F5F3FF]",
+      "h2": "text-2xl sm:text-3xl font-semibold tracking-tight text-[#F5F3FF]",
+      "h3": "text-xl sm:text-2xl font-medium tracking-tight text-[#F5F3FF]",
+      "h4": "text-lg sm:text-xl font-medium text-[#F5F3FF]",
+      "body": "text-sm sm:text-base text-[#A1A1B5] leading-relaxed",
+      "subtext": "text-xs sm:text-sm text-[#6E6E85]",
+      "badge": "text-xs font-mono uppercase tracking-wider font-semibold",
+      "metric_value": "text-2xl sm:text-3xl font-bold font-mono tracking-tight text-[#F5F3FF]"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-xl bg-white/[0.04] border border-[#C4B5FD]/15 shadow-[0_8px_32px_rgba(0,0,0,0.37)]",
+    "surface_card": "bg-[#12121F]/90 backdrop-blur-md border border-[#C4B5FD]/10 rounded-2xl transition-all duration-200 hover:border-[#C4B5FD]/30 hover:shadow-[0_0_25px_rgba(124,58,237,0.18)]",
+    "luminescent_glow": "shadow-[0_0_20px_rgba(124,58,237,0.25)]",
+    "active_pill": "bg-[#C4B5FD]/15 text-[#C4B5FD] border border-[#C4B5FD]/30",
+    "hairline_divider": "border-b border-[#C4B5FD]/10",
+    "neural_mesh": "radial-gradient(circle at 50% 50%, rgba(124,58,237,0.12) 0%, rgba(11,11,20,0) 70%)"
+  },
+  "layout": {
+    "app_shell": "min-h-screen bg-[#0B0B14] text-[#F5F3FF] flex overflow-hidden",
+    "sidebar": "fixed md:static inset-y-0 left-0 z-40 bg-[#12121F]/95 backdrop-blur-2xl border-r border-[#C4B5FD]/12 transition-all duration-300 w-64 md:w-72 data-[collapsed=true]:w-20",
+    "top_navbar": "h-16 px-6 bg-[#0B0B14]/80 backdrop-blur-xl border-b border-[#C4B5FD]/10 flex items-center justify-between sticky top-0 z-30",
+    "main_content": "flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 space-y-8",
+    "bento_grid": "grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-6",
+    "kpi_grid": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+  },
+  "image_urls": {
+    "login_hero_neural": "https://images.unsplash.com/photo-1620829813573-7c9e1877706f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHw0fHxjb2xsZWdlJTIwc3R1ZGVudCUyMHN0dWR5aW5nJTIwbGFwdG9wJTIwY2FtcHVzfGVufDB8fHx8MTc5MTc5NzQ3MXww&ixlib=rb-4.1.0&q=85",
+    "student_avatar_female_top": "https://images.unsplash.com/photo-1765650113773-0752556dcea0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHwxfHxzdHVkZW50JTIwcG9ydHJhaXQlMjBzbWlsaW5nJTIwY2FtcHVzJTIwZWR1Y2F0aW9ufGVufDB8fHx8MTc5MTc5NzQ3NHww&ixlib=rb-4.1.0&q=85",
+    "student_avatar_graduate": "https://images.unsplash.com/photo-1721441933008-dfba55ddc831?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHwyfHxzdHVkZW50JTIwcG9ydHJhaXQlMjBzbWlsaW5nJTIwY2FtcHVzJTIwZWR1Y2F0aW9ufGVufDB8fHx8MTc5MTc5NzQ3NHww&ixlib=rb-4.1.0&q=85",
+    "student_avatar_male_tech": "https://images.unsplash.com/photo-1694175271713-a6e2cc378980?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwxfHxjb2xsZWdlJTIwc3R1ZGVudCUyMHN0dWR5aW5nJTIwbGFwdG9wJTIwY2FtcHVzfGVufDB8fHx8MTc5MTc5NzQ3MXww&ixlib=rb-4.1.0&q=85"
+  },
+  "modules_and_components": {
+    "auth": {
+      "path": "src/pages/Login.jsx",
+      "description": "Split screen login with interactive neural animation, glowing node graph preview, quick role switcher pills (admin@demo.com / faculty@demo.com) and glassmorphism form card."
+    },
+    "dashboard": {
+      "path": "src/pages/Dashboard.jsx",
+      "description": "Comprehensive institutional intelligence view: 4 KPI summary cards (Total Students, Mean CGPA, At-Risk Population, Intervention Success Rate) with sparklines; Attendance & CGPA 8-semester trend curves; 5-tier Risk Distribution Donut; Department cross-comparison matrix; Interactive Risk Heatmap; Live real-time alerts ticker; Top prioritized students list."
+    },
+    "students_list": {
+      "path": "src/pages/Students.jsx",
+      "description": "Dense data table with instant search (name, roll no, email), multi-select department filter (CSE, ECE, MECH, CIVIL, IT), semester slider, risk level pills, status indicators, sorting, pagination, and direct link to Student 360 profile."
+    },
+    "student_360": {
+      "path": "src/pages/StudentProfile.jsx",
+      "description": "Deep individual student audit: Hero header with avatar, roll number, department badge, current risk status; Live composite score circular gauge (Academic, Attendance, LMS Engagement, Placement Readiness, Behavioral); SHAP/Explainable AI factor breakdown (positive and negative contributors); Longitudinal semester trend lines; Prescriptive faculty action plan & 1-click intervention trigger."
+    },
+    "scoring_engine": {
+      "path": "src/lib/scoring.js",
+      "description": "Pure modular scoring algorithm computing weighted composite readiness index, normalized percentiles, and dynamic trend direction."
+    },
+    "risk_engine": {
+      "path": "src/lib/risk.js",
+      "description": "Multi-variable risk engine evaluating attendance drops, academic decline, low portal engagement, and arrears backlog into 4 distinct tiers."
+    },
+    "explainable_ai": {
+      "path": "src/lib/explain.js",
+      "description": "Feature attribution simulator providing transparent mathematical reasons for each student's risk rating with impact weights."
+    },
+    "recommendation_engine": {
+      "path": "src/lib/recommend.js",
+      "description": "Generates tailored pedagogical and mentoring interventions based on identified weaknesses."
+    }
+  },
+  "universal_guidelines_for_main_agent": [
+    "Strictly follow the color palette: #0B0B14 background, #12121F surfaces, #C4B5FD primary accent, #A78BFA secondary, #7C3AED deep glow.",
+    "Do NOT use pure #000000 backgrounds. Retain the deep cosmic purple tint #0B0B14.",
+    "All cards must have subtle rounded corners (rounded-2xl) and 1px delicate borders: border-[#C4B5FD]/15.",
+    "Header and dropdown menus MUST NOT have a transparent background. Use solid or heavily blurred surfaces like bg-[#12121F]/95 with backdrop-blur-xl.",
+    "Every interactive element (buttons, filters, inputs, table rows, tab triggers, modal buttons) MUST include an explicit data-testid attribute in kebab-case (e.g. data-testid='student-search-input', data-testid='login-submit-button').",
+    "Charts must use Recharts with responsive containers, custom tooltips styled in dark purple glass, and subtle gradients (accent light purple and cyan).",
+    "Provide a quick demo credential autofill button on the Login page for both Admin and Faculty to make review seamless.",
+    "Faculty role must automatically filter views and mock data to their assigned department (e.g. CSE), while Admin sees all 5 departments."
+  ]
+}

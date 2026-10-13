@@ -1,0 +1,75 @@
+{
+  "passed": 7,
+  "failed": 1,
+  "bugs": [
+    {
+      "criterion": "Responsive and session controls",
+      "severity": "high",
+      "summary": "At 390px, the mobile sidebar is permanently rendered on top of page content and overlaps the hamburger menu button, making the sidebar toggle (open/close) unusable.",
+      "root_cause": "In AppShell.tsx the wrapper div (`fixed inset-y-0 left-0 z-50 ... -translate-x-full ... md:translate-x-0`) that is supposed to slide the sidebar off-screen when closed computes to `transform: none` in the browser (verified via page.evaluate getComputedStyle) instead of translateX(-100%). Because the <aside> itself is independently `position: fixed; inset-y-0 left-0`, it ends up pinned to the viewport's top-left corner regardless of the wrapper's intended transform/open state, so the sidebar is always visible and intercepts pointer events on data-testid=mobile-menu-button.",
+      "evidence": "Screenshot after demo login at 390x844 shows the full sidebar open over the dashboard even though no toggle was clicked; getComputedStyle(wrapper).transform === 'none' while wrapper.className correctly includes '-translate-x-full'; Playwright click on mobile-menu-button times out after 30s with '<sparkles-svg> from <div class=\"-translate-x-full fixed inset-y-0 left-0 z-50 ...\"> subtree intercepts pointer events'. Backend/API health was not implicated (GET /api/risk-signals and others return 200/401 correctly, confirming this is frontend-only)."
+    }
+  ],
+  "action_items": [
+    "Fix the mobile sidebar CSS in AppShell.tsx so the closed state actually translates the sidebar off-screen (transform resolves to none instead of translateX(-100%)); likely needs the translate utility applied to the element that also carries position:fixed, or a transform-creating ancestor so the <aside>'s own `fixed` doesn't escape to the viewport."
+  ],
+  "retest_needed": true,
+  "checks": [
+    {
+      "criterion": "Supabase-backed Admin data path",
+      "name": "test_tscheck_supabase_admin_data_path.py",
+      "lane": "backend",
+      "status": "passed",
+      "evidence": "GET /api/risk-signals with a signed session cookie for admin@demo.com (built from the real Supabase auth.users id for that email) -> 200, source=supabase, 300 signals. GET /api/students/stu-001 with the same session -> 200, name=Aarav Mehta, department=CSE."
+    },
+    {
+      "criterion": "Supabase-backed Faculty scope",
+      "name": "test_tscheck_supabase_faculty_scope.py",
+      "lane": "backend",
+      "status": "passed",
+      "evidence": "GET /api/risk-signals with a signed session cookie for faculty@demo.com -> 200, source=supabase, 60 signals, all department=CSE. GET /api/risk-signals with no cookie -> 401."
+    },
+    {
+      "criterion": "Login and fallback",
+      "name": "login-demo-mock-fallback",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Login page rendered email/password form plus Admin/Faculty demo buttons. Clicking quick-admin-login-button reached the app shell with live-data-indicator reading 'mock fallback' and current-user-role 'admin'; Risk Signals page data-source-label read 'Mock fallback · read-only demo data'."
+    },
+    {
+      "criterion": "Academic Risk Signals",
+      "name": "risk-signals-academic-overview",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Risk Signals page (academic tab active by default) rendered risk-kpi-grid (Profiles in scope = 300), risk-trend-chart, risk-posture-donut, department x semester heatmap (CSE row visible), and highest-risk-list with ranked rows."
+    },
+    {
+      "criterion": "Placement risk and filtering",
+      "name": "risk-signals-placement-filtering",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Switching to placement-risk-tab updated active styling; selecting department=CSE dropped Profiles-in-scope KPI from 300 to 60; applying risk-level=Low changed the KPI again; resetting both filters restored 300."
+    },
+    {
+      "criterion": "Student 360 navigation",
+      "name": "risk-signals-student-360-navigation",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Clicking the first row in highest-risk-list navigated to /students/stu-xxx and the destination page body contained the same student's name shown in the risk list."
+    },
+    {
+      "criterion": "Role-aware UI scope",
+      "name": "risk-signals-faculty-cse-scope",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Faculty demo login showed current-user-role containing 'faculty' and 'CSE'; Risk Signals page KPI showed 60 profiles, department filter disabled, heatmap only rendered a CSE row (ECE row absent), and every ranked-list meta line contained 'CSE'."
+    },
+    {
+      "criterion": "Responsive and session controls",
+      "name": "responsive-risk-and-session-controls",
+      "lane": "browser",
+      "status": "failed",
+      "evidence": "At 390x844 the sidebar is permanently visible/pinned over page content immediately after login (before any toggle click), overlapping data-testid=mobile-menu-button and blocking the open/close flow. See bugs[] for root cause (wrapper transform resolves to 'none')."
+    }
+  ]
+}
